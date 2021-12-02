@@ -1,6 +1,8 @@
 import typing
 import os
 
+from utils.task import print_result
+
 INPUT_FILE = os.getenv("INPUT_FILE") or "./input.txt"
 
 def parse_input(filename:str) -> typing.List[int]:
@@ -28,9 +30,6 @@ def task_2(measurements,window_size = 3) -> typing.Tuple[int,int]:
         window_sums.append(sum(measurements[i:i + window_size]))
 
     return task_1(window_sums)
-
-def print_result(task:int, result) -> typing.Callable:
-    print(f"Task {task}:{result}")
 
 if __name__ == "__main__":
     measurements = parse_input(INPUT_FILE)
